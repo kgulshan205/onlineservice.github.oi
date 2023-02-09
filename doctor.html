@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>doctor Appointment form</title>
+</head>
+
+<body>
+	<center>
+		<?php
+
+		// servername => localhost
+		// username => root
+		// password => empty
+		// database name => staff
+		$conn = mysqli_connect("localhost", "root", "", "doctors");
+		
+		// Check connection
+		if($conn === false){
+			die("ERROR: Could not connect. "
+				. mysqli_connect_error());
+		}
+		
+		// Taking all 5 values from the form data(input)
+		$name = $_REQUEST['name'];
+        $email = $_REQUEST['email'];
+		$phone = $_REQUEST['phone'];
+		$address = $_REQUEST['address'];
+		$city = $_REQUEST['city'];
+		$pincode = $_REQUEST['pincode'];
+		$state = $_REQUEST['state'];
+		$country = $_REQUEST['country'];
+		date_default_timezone_set("Asia/Kolkata");
+		$appointment_Date = date('Y-m-d',strtotime($_REQUEST['date']));
+		$appointment_time = date('H:i',strtotime($_REQUEST['time']));
+		$gender = $_REQUEST['gender'];
+		$age = $_REQUEST['age'];
+		$doctor_type= $_REQUEST['doctortype'];
+		$appointment_details = $_REQUEST['appointment_details'];
+		
+		
+		
+		// Performing insert query execution
+		// here our table name is college
+		$sql = "INSERT INTO doctor VALUES 
+		('$name','$email','$phone','$address','$city','$pincode','$state','$country','$appointment_Date','$appointment_time','$gender','$age','$doctor_type','$appointment_details')";
+		
+		 if(mysqli_query($conn, $sql)){
+		// 	echo "<h3>database successfully.";
+			
+
+			
+		} else{
+			echo "ERROR: Hush! Sorry $sql. "
+			. mysqli_error($conn);
+		}
+		
+		// Close connection
+		mysqli_close($conn);
+		?>
+		<?php
+		include "sfs.html";
+		?>
+	</center>
+</body>
+
+</html>
