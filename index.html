@@ -1,16 +1,33 @@
 
 
 <?php
-define('mysite',true);
-// include('signup.php');
-// echo"home";
-// include('home.php');
-// echo"home";
-// include('login.php');
-// echo"home";
-// include('logout.php');
-// echo"home";
+
+// if(!defined('mysite')){
+//     header('location:index.php');
+//     die();
+
+// }
+
+
+
+session_start();
+
+if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !==true)
+{
+    header("location: login.php");
+}
+
+
 ?>
+
+
+
+
+
+
+
+
+
 
 
 
@@ -51,7 +68,7 @@ define('mysite',true);
                         <p class="d-flex mb-0">
                             <i class="bi-envelope me-2"></i>
 
-                            <a href="mailto:onlineservicebooking@gmail.com">
+                            <a href="mailto:info@company.com">
                                 onlineservicebooking@gmail.com
                             </a>
                         </p>
@@ -64,19 +81,19 @@ define('mysite',true);
                             </li>
 
                             <li class="social-icon-item">
-                                <a href="https://www.facebook.com/kgulshan205" class="social-icon-link bi-facebook"></a>
+                                <a href="#" class="social-icon-link bi-facebook"></a>
                             </li>
 
                             <li class="social-icon-item">
-                                <a href="https://www.instagram.com/me_gulluofficial/" class="social-icon-link bi-instagram"></a>
+                                <a href="#" class="social-icon-link bi-instagram"></a>
                             </li>
 
                             <li class="social-icon-item">
-                                <a href="https://www.youtube.com/c/SinghGullu" class="social-icon-link bi-youtube"></a>
+                                <a href="#" class="social-icon-link bi-youtube"></a>
                             </li>
 
                             <li class="social-icon-item">
-                                <a href="https://wa.me/7004568635?text=Hello" class="social-icon-link bi-whatsapp"></a>
+                                <a href="#" class="social-icon-link bi-whatsapp"></a>
                             </li>
                         </ul>
                     </div>
@@ -87,8 +104,8 @@ define('mysite',true);
 
         <nav class="navbar navbar-expand-lg bg-light shadow-lg">
             <div class="container">
-                <a class="navbar-brand" href="index.html">
-                    <img src="photo/logo.png" class="logo img-fluid" alt="online service booking">
+                <a class="navbar-brand" href="home.php">
+                    <img src="photo/logo.png" class="logo img-fluid" alt="onlineservicebooking">
                     <span>
                         Online Service Booking
                         <small>5 Minute Away</small>
@@ -102,23 +119,21 @@ define('mysite',true);
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a class="nav-link click-scroll" href="#top">Home</a>
+                            <a class="nav-link click-scroll" href="home.php">Home</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link click-scroll" href="#section_2">About</a>
+                            <a class="nav-link click-scroll" href="aboutlogin.html">About</a>
                         </li>
 
                 
 
                         <li class="nav-item">
-                            <a class="nav-link click-scroll" href="#section_6">Contact</a>
+                            <a class="nav-link click-scroll" href="contactlogin.html">Contact</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link click-scroll" href="login.html">Admin</a>
-                        </li>
+
                         <li class="nav-item ms-3">
-                            <a class="nav-link custom-btn custom-border-btn btn" href="signup.html">BookMyService</a>
+                            <a class="nav-link custom-btn custom-border-btn btn" href="logout.php">LogOut</a>
                         </li>
                     </ul>
                 </div>
@@ -135,7 +150,7 @@ define('mysite',true);
                             <div id="hero-slide" class="carousel carousel-fade slide" data-bs-ride="carousel">
                                 <div class="carousel-inner">
                                     <div class="carousel-item active">
-                                        <img src="photo/slide.png" class="carousel-image img-fluid" alt="...">
+                                        <img src="photo/logo2.png" class="carousel-image img-fluid" alt="...">
                                         
                                         <div class="carousel-caption d-flex flex-column justify-content-end">
                                             <h1>Fast Service</h1>
@@ -181,7 +196,6 @@ define('mysite',true);
                 </div>
             </section>
 
-
             <section class="section-padding">
                 <div class="container">
                     <div class="row">
@@ -192,7 +206,7 @@ define('mysite',true);
 
                         <div class="col-lg-3 col-md-6 col-12 mb-4 mb-lg-0">
                             <div class="featured-block d-flex justify-content-center align-items-center">
-                                <a href="signup.html" class="d-block">
+                                <a href="doctor1.php" class="d-block">
                                     <img src="images/logo/doctorl.png" class="featured-block-image img-fluid" alt="">
 
                                     <p class="featured-block-text">Call <strong>Doctor</strong></p>
@@ -202,7 +216,7 @@ define('mysite',true);
 
                         <div class="col-lg-3 col-md-6 col-12 mb-4 mb-lg-0 mb-md-4">
                             <div class="featured-block d-flex justify-content-center align-items-center">
-                                <a href="signup.html" class="d-block">
+                                <a href="plumber1.php" class="d-block">
                                     <img src="images/logo/plumber1.png" class="featured-block-image img-fluid" alt="">
 
                                     <p class="featured-block-text"><strong>Call</strong> Plumber</p>
@@ -212,7 +226,7 @@ define('mysite',true);
 
                         <div class="col-lg-3 col-md-6 col-12 mb-4 mb-lg-0 mb-md-4">
                             <div class="featured-block d-flex justify-content-center align-items-center">
-                                <a href="signup.html" class="d-block">
+                                <a href="electrician1.php" class="d-block">
                                     <img src="images/logo/electrician1.webp" class="featured-block-image img-fluid" alt="">
 
                                     <p class="featured-block-text">Call <strong>Electrician</strong></p>
@@ -222,7 +236,7 @@ define('mysite',true);
 
                         <div class="col-lg-3 col-md-6 col-12 mb-4 mb-lg-0">
                             <div class="featured-block d-flex justify-content-center align-items-center">
-                                <a href="signup.html" class="d-block">
+                                <a href="cleaner1.php" class="d-block">
                                     <img src="images/logo/homel.webp" class="featured-block-image img-fluid" alt="">
 
                                     <p class="featured-block-text"><strong>Call Home</strong> Cleaner</p>
@@ -234,72 +248,8 @@ define('mysite',true);
                 </div>
             </section>
 
-            <section class="section-padding section-bg" id="section_2">
-                <div class="container">
-                    <div class="row">
 
-                        <div class="col-lg-6 col-12 mb-5 mb-lg-0">
-                            <img src="images/dcr.png" class="custom-text-box-image img-fluid" alt="">
-                        </div>
-
-                        <div class="col-lg-6 col-12">
-                            <div class="custom-text-box">
-                                <h2 class="mb-2">Our Story</h2>
-
-                                <h5 class="mb-3">Online Service Booking</h5>
-
-                                <p class="mb-0">Before 2023 We are trying to cover all the Pin Code of India.</p>
-                            </div>
-                            
-                            <div class="row">
-                                <div class="col-lg-6 col-md-6 col-12">
-                                    <div class="custom-text-box mb-lg-0">
-                                        <h5 class="mb-3">Our Mission</h5>
-
-                                        <p>Before 2023 We are trying to cover all the Pin Code of India.</p>
-
-                                        <ul class="custom-list mt-2">
-                                            <li class="custom-list-item d-flex">
-                                                <i class="bi-check custom-text-box-icon me-2"></i>
-                                                All Over the India
-                                            </li>
-
-                                            <li class="custom-list-item d-flex">
-                                                <i class="bi-check custom-text-box-icon me-2"></i>
-                                                Fast Service
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-6 col-md-6 col-12">
-                                    <div class="custom-text-box d-flex flex-wrap d-lg-block mb-lg-0">
-                                        <div class="counter-thumb"> 
-                                            <div class="d-flex">
-                                                <span class="counter-number" data-from="1" data-to="2009" data-speed="1000"></span>
-                                                <span class="counter-number-text"></span>
-                                            </div>
-
-                                            <span class="counter-text">Customers</span>
-                                        </div> 
-
-                                        <div class="counter-thumb mt-4"> 
-                                            <div class="d-flex">
-                                                <span class="counter-number" data-from="1" data-to="10" data-speed="1000"></span>
-                                                <span class="counter-number-text">N</span>
-                                            </div>
-
-                                            <span class="counter-text">Service</span>
-                                        </div> 
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </section>
-
+           
 
             <section class="about-section section-padding">
                 <div class="container">
@@ -315,7 +265,7 @@ define('mysite',true);
 
                                 <p class="text-muted mb-lg-4 mb-md-4">Co-Founding Partner</p>
 
-                                <p>Jain University,Bangalore</p>
+                                <p>Jain University</p>
 
                                 <p>I am very excited to share this project with all, please support new startup.</p>
 
@@ -411,171 +361,98 @@ define('mysite',true);
             </section>
 
 
-            <section class="contact-section section-padding" id="section_6">
+
+           
+
+            <footer class="site-footer">
                 <div class="container">
                     <div class="row">
-
-                        <div class="col-lg-4 col-12 ms-auto mb-5 mb-lg-0">
-                            <div class="contact-info-wrap">
-                                <h2>Get in touch</h2>
-
-                                <div class="contact-image-wrap d-flex flex-wrap">
-                                    <img src="images/logo/gullu.png" class="img-fluid avatar-image" alt="">
-
-                                    <div class="d-flex flex-column justify-content-center ms-3">
-                                        <p class="mb-0">Gulshan Kumar</p>
-                                        <p class="mb-0"><strong>HR & Office Manager</strong></p>
-                                    </div>
-                                </div>
-
-                                <div class="contact-info">
-                                    <h5 class="mb-3">Contact Infomation</h5>
-
-                                    <p class="d-flex mb-2">
-                                        <i class="bi-geo-alt me-2"></i>
-                                        Jain University , Bangalore
-                                    </p>
-
-                                    <p class="d-flex mb-2">
-                                        <i class="bi-telephone me-2"></i>
-
-                                        <a href="tel: 120-240-9600">
-                                            7004568635
-                                        </a>
-                                    </p>
-
-                                    <p class="d-flex">
-                                        <i class="bi-envelope me-2"></i>
-
-                                        <a href="mailto:info@yourgmail.com">
-                                            onlineservicebooking@gmail.com
-                                        </a>
-                                    </p>
-
-                                    <a href="#" class="custom-btn btn mt-3">Get Direction</a>
-                                </div>
-                            </div>
+                        <div class="col-lg-3 col-12 mb-4">
+                            <img src="photo/logo.png" class="logo img-fluid" alt="">
                         </div>
-
-                        <div class="col-lg-5 col-12 mx-auto">
-                            <form class="custom-form contact-form" action="#" method="post" role="form">
-                                <h2>Contact form</h2>
-
-                                <p class="mb-4">Or, you can just send an email:
-                                    <a href="#">onlineservicebooking@gmail.com</a>
-                                </p>
-                                <div class="row">
-                                    <div class="col-lg-6 col-md-6 col-12">
-                                        <input type="text" name="first-name" id="first-name" class="form-control" placeholder="Gulshan" required>
-                                    </div>
-
-                                    <div class="col-lg-6 col-md-6 col-12">
-                                        <input type="text" name="last-name" id="last-name" class="form-control" placeholder="Kumar" required>
-                                    </div>
-                                </div>
-
-                                <input type="email" name="email" id="email" pattern="[^ @]*@[^ @]*" class="form-control" placeholder="onlineservicebooking@gmail.com" required>
-
-                                <textarea name="message" rows="5" class="form-control" id="message" placeholder="What can we help you?"></textarea>
-
-                                <button type="submit" class="form-control">Send Message</button>
-                            </form>
-                        </div>
-
-                    </div>
-                </div>
-            </section>
-        </main>
-
-        <footer class="site-footer">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-3 col-12 mb-4">
-                        <img src="images/logo.png" class="logo img-fluid" alt="">
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 col-12 mb-4">
-                        <h5 class="site-footer-title mb-3">Quick Links</h5>
-
-                        <ul class="footer-menu">
-                            <li class="footer-menu-item"><a href="#" class="footer-menu-link">Singup</a></li>
-
-                            <li class="footer-menu-item"><a href="#" class="footer-menu-link">About</a></li>
-
-                            <li class="footer-menu-item"><a href="#" class="footer-menu-link">Contact us</a></li>
-
-                            <li class="footer-menu-item"><a href="#" class="footer-menu-link">Home</a></li>
-
-                            <li class="footer-menu-item"><a href="#" class="footer-menu-link">Donate Us</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 col-12 mx-auto">
-                        <h5 class="site-footer-title mb-3">Contact Infomation</h5>
-
-                        <p class="text-white d-flex mb-2">
-                            <i class="bi-telephone me-2"></i>
-
-                            <a href="tel: 120-240-9600" class="site-footer-link">
-                                7004568635
-                            </a>
-                        </p>
-
-                        <p class="text-white d-flex">
-                            <i class="bi-envelope me-2"></i>
-
-                            <a href="mailto:info@yourgmail.com" class="site-footer-link">
-                                onlineservicebooking@gmail.com
-                            </a>
-                        </p>
-
-                        <p class="text-white d-flex mt-3">
-                            <i class="bi-geo-alt me-2"></i>
-                            jain University,Bangalore
-                        </p>
-
-                        <a href="#" class="custom-btn btn mt-3">Get Direction</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="site-footer-bottom">
-                <div class="container">
-                    <div class="row">
-
-                        <div class="col-lg-6 col-md-7 col-12">
-                            <p class="copyright-text mb-0">Copyright © 2036 <a href="#">onlineservice</a> booking.
-                        	Design: <a href="https://www.instagram.com/me_gulluofficial/" target="_blank">Gulshan Kumar</a></p>
-                        </div>
-                        
-                        <div class="col-lg-6 col-md-5 col-12 d-flex justify-content-center align-items-center mx-auto">
-                            <ul class="social-icon">
-                                <li class="social-icon-item">
-                                    <a href="#" class="social-icon-link bi-twitter"></a>
-                                </li>
-
-                                <li class="social-icon-item">
-                                    <a href="https://www.facebook.com/kgulshan205" class="social-icon-link bi-facebook"></a>
-                                </li>
-
-                                <li class="social-icon-item">
-                                    <a href="https://www.instagram.com/me_gulluofficial/" class="social-icon-link bi-instagram"></a>
-                                </li>
-
-                                <li class="social-icon-item">
-                                    <a href="#" class="social-icon-link bi-linkedin"></a>
-                                </li>
-
-                                <li class="social-icon-item">
-                                    <a href="https://www.youtube.com/c/SinghGullu" class="social-icon-link bi-youtube"></a>
-                                </li>
+    
+                        <div class="col-lg-4 col-md-6 col-12 mb-4">
+                            <h5 class="site-footer-title mb-3">Quick Links</h5>
+    
+                            <ul class="footer-menu">
+                                <li class="footer-menu-item"><a href="#" class="footer-menu-link">Singup</a></li>
+    
+                                <li class="footer-menu-item"><a href="#" class="footer-menu-link">About</a></li>
+    
+                                <li class="footer-menu-item"><a href="#" class="footer-menu-link">Contact us</a></li>
+    
+                                <li class="footer-menu-item"><a href="#" class="footer-menu-link">Home</a></li>
+    
+                                <li class="footer-menu-item"><a href="#" class="footer-menu-link">Donate Us</a></li>
                             </ul>
                         </div>
-                        
+    
+                        <div class="col-lg-4 col-md-6 col-12 mx-auto">
+                            <h5 class="site-footer-title mb-3">Contact Infomation</h5>
+    
+                            <p class="text-white d-flex mb-2">
+                                <i class="bi-telephone me-2"></i>
+    
+                                <a href="tel: 120-240-9600" class="site-footer-link">
+                                    7004568635
+                                </a>
+                            </p>
+    
+                            <p class="text-white d-flex">
+                                <i class="bi-envelope me-2"></i>
+    
+                                <a href="mailto:info@yourgmail.com" class="site-footer-link">
+                                    onlineservicebooking@gmail.com
+                                </a>
+                            </p>
+    
+                            <p class="text-white d-flex mt-3">
+                                <i class="bi-geo-alt me-2"></i>
+                                jain University,Bangalore
+                            </p>
+    
+                            <a href="#" class="custom-btn btn mt-3">Get Direction</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </footer>
+    
+                <div class="site-footer-bottom">
+                    <div class="container">
+                        <div class="row">
+    
+                            <div class="col-lg-6 col-md-7 col-12">
+                                <p class="copyright-text mb-0">Copyright © 2036 <a href="#">onlineservice</a> booking.
+                                Design: <a href="https://www.instagram.com/me_gulluofficial/" target="_blank">Gulshan Kumar</a></p>
+                            </div>
+                            
+                            <div class="col-lg-6 col-md-5 col-12 d-flex justify-content-center align-items-center mx-auto">
+                                <ul class="social-icon">
+                                    <li class="social-icon-item">
+                                        <a href="#" class="social-icon-link bi-twitter"></a>
+                                    </li>
+    
+                                    <li class="social-icon-item">
+                                        <a href="https://www.facebook.com/kgulshan205" class="social-icon-link bi-facebook"></a>
+                                    </li>
+    
+                                    <li class="social-icon-item">
+                                        <a href="https://www.instagram.com/me_gulluofficial/" class="social-icon-link bi-instagram"></a>
+                                    </li>
+    
+                                    <li class="social-icon-item">
+                                        <a href="#" class="social-icon-link bi-linkedin"></a>
+                                    </li>
+    
+                                    <li class="social-icon-item">
+                                        <a href="https://www.youtube.com/c/SinghGullu" class="social-icon-link bi-youtube"></a>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </footer>
 
         <!-- JAVASCRIPT FILES -->
         <script src="js/jquery.min.js"></script>
